@@ -42,22 +42,46 @@
   margin: 0 auto;
 }
 
+/* 「本日の記事」の部分です */
+.todays-article{
+  font-weight: bold;
+  margin: 10px;
+  margin-left: 50px;
+}
+
 /* 記事一覧部分の装飾です */
 .body{
   width: 90vw;
-  height: 300px;
   margin: 0 auto;
   background-color: blue;
   &__right{
     width: 60vw;
-    height: 300px;
-    background-color: orange;
+    background-color: white;
     float:left;
+    .article{
+      width: 60vw;
+      height: 150px;
+      padding: 5px;
+      &__image{
+        width: 150px;
+        height: 150px;
+        float: left;
+      }
+      &__texts{
+        width: -webkit-calc(60vw - 160px);
+        float: right;
+        &__title{
+          font-weight: bold;
+        }
+        &__detail{
+          font-size: 12px;
+        }
+      }
+    }
   }
   &__left{
     width: 30vw;
     height: 300px;
-    background-color: gray;
     float:  right;
   }
 }
