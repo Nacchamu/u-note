@@ -53,5 +53,5 @@ production:
   pool: 5
   database: u-note_production
   username: root
-  password:
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
