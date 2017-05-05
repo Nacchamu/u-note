@@ -1,0 +1,64 @@
+/* ヘッダー部分の装飾です */
+.header{
+  background-color: black;
+  height: 70px;
+  width: 100vw;
+  margin-bottom: 20px;
+  &__title{
+    color: white;
+    float: left;
+    width: 350px;
+    line-height: 70px;
+    &__logo{
+      font-size: 30px;
+      float: left;
+      margin-left: 50px;
+    }
+    &__copy{
+      font-size: 10px;
+      float: left;
+    }
+  }
+  &__search{
+    float: right;
+    margin-right: 50px;
+    line-height: 70px;
+    &__text{
+      width:200px;
+      height:30px;
+    }
+    &__submit{
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+/* スライドショー部分の装飾です */
+.main{
+  width: 90vw;
+  height: 300px;
+  background-color: red;
+  margin: 0 auto;
+}
+
+/* 記事一覧部分の装飾です */
+.body{
+  width: 90vw;
+  height: 300px;
+  margin: 0 auto;
+  background-color: blue;
+  &__right{
+    width: 60vw;
+    height: 300px;
+    background-color: orange;
+    float:left;
+  }
+  &__left{
+    width: 30vw;
+    height: 300px;
+    background-color: gray;
+    float:  right;
+  }
+}
+

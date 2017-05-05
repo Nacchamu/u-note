@@ -1,1 +1,15 @@
-%p hello
+%div.header
+  %div.header__title
+    %p.header__title__logo U-NOTE
+    = link_to new_user_session_path do
+      %p.header__title__copy 仕事を楽しく、毎日をかっこ良く
+  %div.header__search
+    %form
+      %input{class: "header__search__text",type: "text", name: "search", placeholder: "知りたいことを入力"}
+      %input{class: "header__search__submit",type: "submit", name: "search", value: "検索"}
+
+%div.main
+
+%div.body
+  %div.body__right
+  %div.body__left
