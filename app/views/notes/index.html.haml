@@ -3,10 +3,19 @@
     %p.header__title__logo U-NOTE
     = link_to new_user_session_path do
       %p.header__title__copy 仕事を楽しく、毎日をかっこ良く
+  - if user_signed_in?
+    %div.mypage
+      = link_to destroy_user_session_path, method: :delete do
+        %p USER NAME
+    %div.fa-icons
+      = link_to new_note_path do
+        %i.fa.fa-pencil-square-o.fa-2x
+      %i.fa.fa-archive.fa-2x
   %div.header__search
     %form
       %input{class: "header__search__text",type: "text", name: "search", placeholder: "知りたいことを入力"}
       %input{class: "header__search__submit",type: "submit", name: "search", value: "検索"}
+
 
 %div.main
 

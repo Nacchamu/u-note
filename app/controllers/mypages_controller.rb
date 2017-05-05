@@ -1,4 +1,8 @@
 class MypagesController < ApplicationController
+
+  def show
+  end
+
   def pv
   end
 

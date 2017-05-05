@@ -17,11 +17,11 @@
     &__copy{
       font-size: 10px;
       float: left;
+      color: white;
     }
   }
   &__search{
     float: right;
-    margin-right: 50px;
     line-height: 70px;
     &__text{
       width:200px;
@@ -30,6 +30,24 @@
     &__submit{
       width: 50px;
       height: 50px;
+    }
+  }
+  .fa-icons{
+    float: right;
+    margin-top: 20px;
+    .fa{
+      color: white;
+    }
+  }
+  .mypage{
+    width: 200px;
+    height: 70px;
+    line-height: 70px;
+    background-color: gray;
+    float: right;
+    p{
+      color: white;
+      text-decoration: none;
     }
   }
 }
