@@ -53,6 +53,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'erb2haml'
+  gem 'pry-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -63,6 +64,11 @@ gem 'devise'
 gem 'cancancan'
 gem 'rails_admin'
 gem "font-awesome-rails"
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'acts-as-taggable-on', '~> 4.0.0'
+gem 'jquery-ui-rails'
 
 group :production do
   gem 'unicorn'

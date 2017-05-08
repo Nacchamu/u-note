@@ -1,0 +1,116 @@
+.page-title{
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.post-article{
+  width: 620px;
+  height: 900px;
+  padding: 10px;
+  &__form{
+    &__title{
+      width: 620px;
+      height: 68px;
+      font-size: 20px;
+    }
+    &__text{
+      width: 620px;
+      height: 900px;
+    }
+  }
+  .tag-form{
+    width: 600px;
+    height: 340px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    &__title{
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-weight: bold;
+    }
+    &__left{
+      width: 300px;
+      height: 290px;
+      float: left;
+      &__text{
+        width: 220px;
+        height: 40px;
+        font-size: 15px;
+      }
+      &__button{
+        padding: 5px 5px;
+        font-size: 1em;
+        background-color: #CCC;
+      }
+      .lists{
+        li{
+          list-style: none;
+        }
+      }
+      p{
+        font-size: 12px;
+        margin-top: 10px;
+        color: gray;
+      }
+    }
+    &__right{
+      width: 300px;
+      height: 290px;
+      float: left;
+      p{
+        font-size: 12px;
+        margin-top: 10px;
+        color: gray;
+      }
+      .tag-library{
+        width: 240px;
+        height: 250px;
+        border: solid 1px gray;
+      }
+    }
+  }
+  .pic-form{
+    clear: left;
+    width: 600px;
+    height: 260px;
+    padding: 10px;
+    background-color: white;
+    &__title{
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-weight: bold;
+    }
+    &__notice{
+        font-size: 12px;
+        color: gray;
+    }
+    .icon-box{
+      width: 150px;
+      height: 150px;
+      margin-left: 30px;
+      background-color: gray;
+      position: relative;
+      .fa{
+        line-height: 150px;
+        margin-left: 32.5px;
+      }
+      &__notice{
+        positon: absolute;
+        bottom: 10px;
+      }
+    }
+  }
+  .send-form{
+    width: 620px;
+    height: 35px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .select-form{
+      width: 180px;
+      height: 35px;
+      font-size: 15px;
+    }
+  }
+}

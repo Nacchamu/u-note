@@ -1,5 +1,13 @@
 @import "./note-index";
+@import "./note-new";
 @import "./reset";
 @import "./body";
 @import "./registration";
 @import "font-awesome";
+
+/*
+ *= require_tree .
+ *= require jquery.tagit
+ *= require tagit.ui-zendesk
+ *= require_self
+*/

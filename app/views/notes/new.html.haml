@@ -1,1 +1,33 @@
-%p here is note/new
+%p.page-title 記事作成
+
+%div.post-article
+  = form_for @article, url:{ controller: :notes, action: :create}, html:{class: 'post-article__form', :multipart => true } do |f|
+    = f.text_field :title, class: 'post-article__form__title', placeholder: '記事タイトル（４８字以内）'
+    = f.cktext_area :text, class: 'post-article__form__text'
+
+    %div.tag-form
+      %p.tag-form__title タグ
+      %div.tag-form__left
+        = text_field_tag 'article[tag_list]', @article.tag_list.join(','), class: 'tag-form__left__text',placeholder: '1~100文字で入力してください'
+        %input{type: "button", value: '追加', class: 'tag-form__left__button'}
+        %p タグが複数ある場合はコンマで区切ってください
+        %ul.lists
+      %div.tag-form__right
+        %p よく使われるタグ
+        %div.tag-library
+
+    %div.pic-form
+      %p.pic-form__title サムネイル画像
+      %p.pic-form__notice 画像の選択
+      %div.icon-box
+        %label{for: "thumbnail", class: "fa fa-picture-o fa-5x comment-form__icon" }
+          = f.file_field :thumbnail, id: 'thumbnail', style: 'display: none;'
+        %p.icon-box__notice +他の画像を選択
+
+    %div.send-form
+      %select{name: 'article[category_id]', class: 'select-form'}
+        %option{value: 0 } カテゴリを選択（必須）
+        - @categories.each do |category|
+          %option{value: category.id }= category.name
+      %input.post-article__form__button{type: "submit", value: "Sent"}/
+

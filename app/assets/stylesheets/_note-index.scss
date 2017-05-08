@@ -13,6 +13,8 @@
       font-size: 30px;
       float: left;
       margin-left: 50px;
+      color: white;
+      text-decoration: none;
     }
     &__copy{
       font-size: 10px;
@@ -45,9 +47,14 @@
     line-height: 70px;
     background-color: gray;
     float: right;
-    p{
-      color: white;
-      text-decoration: none;
+  }
+  .user-info{
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    li{
+      height: 20px;
+      list-style: none;
     }
   }
 }
