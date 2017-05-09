@@ -11,4 +11,5 @@ class Article < ApplicationRecord
   acts_as_taggable
 
   validates_numericality_of :category_id, :only_integer => true, :greater_than_or_equal_to => 1
+  Article.order("created_at DESC")
 end

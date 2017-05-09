@@ -1,9 +1,11 @@
 class NotesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.all.order("created_at DESC")
+    @tags = ActsAsTaggableOn::Tag.most_used(7)
   end
 
   def show
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -22,7 +24,6 @@ class NotesController < ApplicationController
 
   private
   def create_params
-    binding.pry
     params.require(:article).permit(:title, :text, :thumbnail, :tag_list, :category_id).merge(user_id: current_user.id)
   end
 end

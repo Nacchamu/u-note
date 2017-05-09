@@ -4,13 +4,48 @@
 
 %div.body
   %div.body__right
-    - @articles.each do |article|
-      %div.article
-        %img.article__image{src: article.thumbnail }
-        %div.article__texts
-          %p.article__texts__title= article.title
-          %p.article__texts__detail= article.text
-          %p.article__texts__date= article.created_at.strftime('%Y年%m月%d日 %H時%M分')
-          %p.article__texts__date= article.user.name
+    = render partial: "article", collection: @articles
 
   %div.body__left
+    %div.body__left__categories
+      %p カテゴリ一覧
+      %div.body__left__categories__category
+        %div.fa-box
+          %i.fa.fa-suitcase.fa-2x
+        %div ビジネス
+      %div.body__left__categories__category
+        %div.fa-box
+          %i.fa.fa-book.fa-2x
+        %div 本
+      %div.body__left__categories__category
+        %div.fa-box
+          %i.fa.fa-bicycle.fa-2x
+        %div ライフスタイル
+      %div.body__left__categories__category
+        %div.fa-box
+          %i.fa.fa-black-tie.fa-2x
+        %div メンズファッション
+      %div.body__left__categories__category
+        %div.fa-box
+          %i.fa.fa-calendar-check-o.fa-2x
+        %div イベント
+      %div.body__left__categories__category
+        %div.fa-box
+          %i.fa.fa-microphone.fa-2x
+        %div インタビュー
+
+    %div.body__left__famouses
+      %p.title 記事ランキング
+      %p.time= Time.now.strftime('%Y年%m月%d日') + 'にアクセスが多かった記事はこちら！'
+
+    %div.body__left__news
+      %p 新着特集
+
+    %div.body__left__keywords
+      %p 話題のキーワード
+      %div.body__left__keywords__tags-box
+        - @tags.each do |tag|
+          %div.body__left__keywords__tags-box__tag-box
+            %i.fa.fa-tag
+            %p.tag= tag.name
+
