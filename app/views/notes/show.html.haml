@@ -1,2 +1,21 @@
-= @article.title
-= @article.text.html_safe
+%div.show-inner
+  %div.show-inner__title-box
+    %h1.show-inner__title-box__title= @article.title
+  %div.show-inner__SNS-box
+  %div.show-inner__info-space
+    %div.show-inner__info-space__box
+      %i.fa.fa-calendar
+      %div.show-inner__info-box__date= @article.created_at.strftime('%Y年%m月%d日')
+    %div.show-inner__info-space__box
+      %i.fa.fa-eye
+      %div.show-inner__info-box__view 500
+    %div.show-inner__info-space__box
+      %i.fa.fa-star-o
+      %div.show-inner__info-box__fav 0fav
+  %img.show-inner__image{src: @article.thumbnail }
+  != @article.text
+  %div.show-inner__keywords
+    %p.show-inner__keywords__title
+      %strong この記事の関連キーワード
+    - @tags.each do |tag|
+      %p= tag

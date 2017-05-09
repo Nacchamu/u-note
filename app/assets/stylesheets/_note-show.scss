@@ -1,0 +1,46 @@
+.show-inner{
+  width: 640px;
+  padding: 20px;
+  margin-left: 150px;
+  border-top: solid 3px #1E90FF;
+  background-color: white;
+  &__title-box{
+    width: 640px;
+    &__title{
+      font-size: 25px;
+      margin: 20px;
+    }
+  }
+  &__SNS-box{
+    width: 640px;
+    height: 30px;
+    background-color: red;
+  }
+  &__info-space{
+    width: 640px;
+    height: 30px;
+    margin: 0 auto;
+    line-height: 30px;
+    background-color: #C0C0C0;
+    &__box{
+      i{
+        margin-left: 20px;
+        float: left;
+      }
+      div{
+        font-size: 12px;
+        float: left;
+      }
+    }
+  }
+  &__image{
+    width: 640px;
+    margin-bottom: 30px;
+  }
+  &__keywords{
+    margin-top: 30px;
+    &__title{
+      border-bottom: solid 1px;
+    }
+  }
+}
