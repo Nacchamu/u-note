@@ -102,12 +102,15 @@
         }
         &__detail{
           width: 460px;
-          height: 90px;
+          height: 55px;
+          margin-bottom: 10px;
           font-size: 12px;
-          overflow-y: hidden;
-          text-overflow: ellipsis;
-          &__text{
-            font-size: 12px;
+          overflow: hidden;
+          p{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
           }
         }
         &__user-name{

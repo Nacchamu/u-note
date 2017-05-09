@@ -6,6 +6,7 @@ class NotesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @tags = @article.tag_list
   end
 
   def new

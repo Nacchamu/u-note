@@ -4,6 +4,7 @@
   %div.article__texts
     = link_to note_path(article.id) do
       %p.article__texts__title= article.title
-    %div.article__texts__detail= article.text.html_safe
+    %div.article__texts__detail
+      != article.text
     %p.article__texts__user-name= article.user.name
     %p.article__texts__date= article.created_at.strftime('%Y年%m月%d日 %H時%M分')
