@@ -69,6 +69,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 4.0.0'
 gem 'jquery-ui-rails'
+gem 'impressionist'
 
 group :production do
   gem 'unicorn'
