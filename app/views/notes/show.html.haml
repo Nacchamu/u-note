@@ -2,13 +2,15 @@
   %div.show-inner__title-box
     %h1.show-inner__title-box__title= @article.title
   %div.show-inner__SNS-box
+    %div.show-inner__SNS-box__fav-count
+    %input{type: "submit", value: "お気に入り"}
   %div.show-inner__info-space
     %div.show-inner__info-space__box
       %i.fa.fa-calendar
       %div.show-inner__info-box__date= @article.created_at.strftime('%Y年%m月%d日')
     %div.show-inner__info-space__box
       %i.fa.fa-eye
-      %div.show-inner__info-box__view 500
+      %div.show-inner__info-box__view 50
     %div.show-inner__info-space__box
       %i.fa.fa-star-o
       %div.show-inner__info-box__fav 0fav
