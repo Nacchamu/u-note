@@ -6,6 +6,8 @@ class NotesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @fav_count = Favorite.where(article_id: params[:id])
+    @yet = Favorite.where(user_id: current_user.id).where(article_id: params[:id])
     @tags = @article.tag_list
   end
 

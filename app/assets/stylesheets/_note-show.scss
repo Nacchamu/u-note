@@ -14,7 +14,17 @@
   &__SNS-box{
     width: 640px;
     height: 30px;
-    background-color: red;
+    &__fav-count{
+      width: 80px;
+      height: 60px;
+      margin-bottom: 30px;
+      &__size{
+        width: 80px;
+        height: 30px;
+        text-align: center;
+        border: solid 1px #C0C0C0;
+      }
+    }
   }
   &__info-space{
     width: 640px;
