@@ -1,0 +1,58 @@
+.mypage-left{
+  width: 300px;
+  margin-left: 100px;
+  float: left;
+  &__cover{
+    width: 300px;
+    height: 400px;
+    background-color: red;
+  }
+  &__menues{
+    li{
+      width: 300px;
+      height: 40px;
+      line-height: 40px;
+      border-top: solid 1px #CCC;
+    }
+    &__delete-button{
+      font-size: 10px;
+      color: gray;
+      float: right;
+    }
+  }
+}
+
+.mypage-menues{
+
+}
+
+.mypage-user-info{
+  width: 600px;
+  padding: 20px;
+  margin-left: 20px;
+  float: left;
+  background-color: white;
+  &__title{
+    width: 640px;
+    height: 58px;
+    line-height: 58px;
+    float: left;
+  }
+  &__box{
+    width: 600px;
+    min-height: 120px;
+    border-bottom: solid 1px  #CCC;
+    clear: left;
+    &__left{
+      width: 200px;
+      float: left;
+      &__title{
+      }
+    }
+    &__right{
+      float: left;
+      margin-left: 20px;
+      line-height: 120px;
+    }
+  }
+}

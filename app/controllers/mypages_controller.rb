@@ -1,9 +1,10 @@
 class MypagesController < ApplicationController
 
-  def show
+  def index
+    @favorites = Favorite.where(user_id: current_user.id).order("created_at DESC")
   end
 
-  def pv
+  def show
   end
 
   def favorite

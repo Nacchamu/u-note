@@ -15,6 +15,5 @@
 //= require jquery-ui
 //= require tag-it
 //= require ckeditor/init
-//= require turbolinks
 //= require_tree .
 

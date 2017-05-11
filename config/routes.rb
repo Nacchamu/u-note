@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'notes#index'
   devise_for :users
-  resources :notes, only:[:index, :show, :new, :create]
-  resources :mypages, only:[:favorite, :pv, :show] do
-    get 'favorite'
+  resources :notes, only: [:index, :show, :new, :create] do
+    resources :favorites, only: [:create, :update, :destroy]
+  end
+  resources :mypages, only: [:index, :pv, :show] do
     get 'pv'
   end
 end

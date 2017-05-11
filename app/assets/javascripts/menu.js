@@ -1,13 +1,6 @@
 $(function(){
-  $(".toggle").click(function(){
-    $(".header-bottom").slideToggle();
+  $(".mypage").click(function(){
+    $(".user-info").slideToggle();
     return false;
-  });
-  $(window).resize(function(){
-    var win = $(window).width();
-    var p = 480;
-    if(win > p){
-      $(".header-bottom").show();
-    }
   });
 });

@@ -3,7 +3,14 @@
     %h1.show-inner__title-box__title= @article.title
   %div.show-inner__SNS-box
     %div.show-inner__SNS-box__fav-count
-    %input{type: "submit", value: "お気に入り"}
+      %div.show-inner__SNS-box__fav-count__size= @fav_count.length
+      - if @yet.exists?
+        %input.show-inner__SNS-box__fav-count__button{type: "submit", value: "お気に入り済み"}
+      - else
+        %input.show-inner__SNS-box__fav-count__button{type: "submit", value: "お気に入り"}
+      - @yet.each do |yet|
+        %input.show-inner__SNS-box__fav-count__already{type: "hidden", value: yet.id}
+
   %div.show-inner__info-space
     %div.show-inner__info-space__box
       %i.fa.fa-calendar
