@@ -25,6 +25,14 @@ class NotesController < ApplicationController
     end
   end
 
+  def search
+    @articles = Article.where('title LIKE(?)',"%#{params[:title]}%").order("created_at DESC")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def create_params
     params.require(:article).permit(:title, :text, :thumbnail, :tag_list, :category_id).merge(user_id: current_user.id)
