@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(data){
-    var thumbnail = $('<a href=""><img class="article__image" src="' + data.thumbnail.url + '">');
+    var thumbnail = $('<a href=""><img class="article__image" src="' + data.thumbnail + '">');
     console.log(data.thumbnail);
     var title = $('<div class="article__texts">').append('<a href=""><p class="article__texts__title">' + data.title);
     var text = $(title).append('<div class="article__texts__detail">' + data.text).append('<p class="article__texts__date">' + data.created_at);

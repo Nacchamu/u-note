@@ -2,7 +2,7 @@
 
 %div.post-article
   = form_for @article, url:{ controller: :notes, action: :create}, html:{class: 'post-article__form', :multipart => true } do |f|
-    = f.text_field :title, class: 'post-article__form__title', placeholder: '記事タイトル（４８字以内）'
+    = f.text_field :title, class: 'post-article__form__title', placeholder: '記事タイトル（４８字以内）', maxlength: 48
     = f.cktext_area :text, class: 'post-article__form__text'
 
     %div.tag-form

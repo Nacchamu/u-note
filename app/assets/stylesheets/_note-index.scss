@@ -101,9 +101,11 @@
       height: 150px;
       padding: 5px;
       &__image{
+        object-fit: cover;
         width: 150px;
         height: 150px;
-        float: left;
+        background-color: #ccc;
+        border: 1px solid #ccc;
       }
       &__texts{
         width: -webkit-calc(60vw - 160px);

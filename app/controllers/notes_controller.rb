@@ -7,7 +7,7 @@ class NotesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @fav_count = Favorite.where(article_id: params[:id])
-    @yet = Favorite.where(user_id: current_user.id).where(article_id: params[:id])
+    @yet = Favorite.where(user_id: current_user.id).where(article_id: params[:id]) if user_signed_in?
     @tags = @article.tag_list
   end
 
@@ -21,7 +21,7 @@ class NotesController < ApplicationController
     if article.save
       redirect_to notes_path
     else
-      render :new
+      redirect_to new_note_path
     end
   end
 

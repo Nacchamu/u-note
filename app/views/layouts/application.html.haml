@@ -11,8 +11,7 @@
       %div.header__title
         = link_to root_path do
           %p.header__title__logo U-NOTE
-        = link_to new_user_session_path do
-          %p.header__title__copy 仕事を楽しく、毎日をかっこ良く
+        %p.header__title__copy 仕事を楽しく、毎日をかっこ良く
       - if user_signed_in?
         %div.header__search
           %form
@@ -24,7 +23,7 @@
           %i.fa.fa-archive.fa-2x
         %div.mypage= current_user.name
         %ul.user-info
-          = link_to mypages_path do
+          = link_to mypages_favorite_path do
             %li.favo-article お気に入り記事
           = link_to edit_user_registration_path do
             %li.profile プロフィール設定
