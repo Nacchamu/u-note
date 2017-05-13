@@ -4,12 +4,17 @@
   %div.show-inner__SNS-box
     %div.show-inner__SNS-box__fav-count
       %div.show-inner__SNS-box__fav-count__size= @fav_count.length
-      - if @yet.exists?
-        %input.show-inner__SNS-box__fav-count__button{type: "submit", value: "お気に入り済み"}
+      - if user_signed_in?
+        %div.show-inner__SNS-box__fav-count__wrap
+          - if @yet.exists?
+            %input.show-inner__SNS-box__fav-count__wrap__button{type: "submit", value: "お気に入り済み"}
+          - else
+            %input.show-inner__SNS-box__fav-count__wrap__button{type: "submit", value: "お気に入り"}
+        - @yet.each do |yet|
+          %input.show-inner__SNS-box__fav-count__already{type: "hidden", value: yet.id}
       - else
-        %input.show-inner__SNS-box__fav-count__button{type: "submit", value: "お気に入り"}
-      - @yet.each do |yet|
-        %input.show-inner__SNS-box__fav-count__already{type: "hidden", value: yet.id}
+        = link_to new_user_session_path do
+          %input.show-inner__SNS-box__fav-count__button-not-sign-in{type: "submit", value: "お気に入り"}
 
   %div.show-inner__info-space
     %div.show-inner__info-space__box

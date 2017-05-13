@@ -4,8 +4,11 @@
     height: 150px;
     padding: 5px;
     &__image{
+      object-fit: cover;
       width: 150px;
       height: 150px;
+      background-color: #ccc;
+      border: 1px solid #ccc;
       float: left;
     }
     &__texts{
