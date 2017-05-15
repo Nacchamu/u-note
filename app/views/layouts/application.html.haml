@@ -20,15 +20,18 @@
         %div.fa-icons
           = link_to new_note_path do
             %i.fa.fa-pencil-square-o.fa-2x
-          %i.fa.fa-archive.fa-2x
-        %div.mypage= current_user.name
-        %ul.user-info
-          = link_to mypages_favorite_path do
-            %li.favo-article お気に入り記事
-          = link_to edit_user_registration_path do
-            %li.profile プロフィール設定
-          = link_to destroy_user_session_path, method: :delete do
-            %li.logout ログアウト
+          = link_to mypage_path(current_user) do
+            %i.fa.fa-archive.fa-2x
+        %div
+          %p.mypage
+            = current_user.name
+          %ul.user-info
+            = link_to mypages_favorite_path do
+              %li.menu お気に入り記事
+            = link_to edit_user_registration_path do
+              %li.menu プロフィール設定
+            = link_to destroy_user_session_path, method: :delete do
+              %li.menu ログアウト
 
 
     = yield

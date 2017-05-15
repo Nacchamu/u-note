@@ -1,4 +1,7 @@
-%div.main
+%div.slide
+  -@slidepics.each do |pic|
+    %p.slide_title
+    %img.slide__image{src: pic.thumbnail }
 
 %p.todays-article 本日の記事
 
@@ -12,27 +15,33 @@
       %div.body__left__categories__category
         %div.fa-box
           %i.fa.fa-suitcase.fa-2x
-        %div ビジネス
+        %p ビジネス
+        %input{type:'hidden', value: 1}
       %div.body__left__categories__category
         %div.fa-box
           %i.fa.fa-book.fa-2x
-        %div 本
+        %p 本
+        %input{type:'hidden', value: 2}
       %div.body__left__categories__category
         %div.fa-box
           %i.fa.fa-bicycle.fa-2x
-        %div ライフスタイル
+        %p ライフスタイル
+        %input{type:'hidden', value: 3}
       %div.body__left__categories__category
         %div.fa-box
           %i.fa.fa-black-tie.fa-2x
-        %div メンズファッション
+        %p メンズファッション
+        %input{type:'hidden', value: 4}
       %div.body__left__categories__category
         %div.fa-box
           %i.fa.fa-calendar-check-o.fa-2x
-        %div イベント
+        %p イベント
+        %input{type:'hidden', value: 5}
       %div.body__left__categories__category
         %div.fa-box
           %i.fa.fa-microphone.fa-2x
-        %div インタビュー
+        %p インタビュー
+        %input{type:'hidden', value: 6}
 
     %div.body__left__famouses
       %p.title 記事ランキング

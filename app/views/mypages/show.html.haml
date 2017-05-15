@@ -11,15 +11,15 @@
       %p.mypage-left__menues__delete-button >アカウントを削除する
 
 %div.mypage-user-info
-  %p お気に入りの記事
-  - @favorites.each do |favorite|
+  %p あなたが書いた記事
+  - @articles.each do |article|
     %div.article
-      = link_to note_path(favorite.id) do
-        %img.article__image{src: favorite.article.thumbnail }
+      = link_to note_path(article.id) do
+        %img.article__image{src: article.thumbnail }
       %div.article__texts
-        = link_to note_path(favorite.article.id) do
-          %p.article__texts__title= favorite.article.title
+        = link_to note_path(article.id) do
+          %p.article__texts__title= article.title
         %div.article__texts__detail
-          != favorite.article.text
+          != article.text
         %p.article__texts__user-name
-        %p.article__texts__date= favorite.article.created_at.strftime('%Y年%m月%d日 %H時%M分')
+        %p.article__texts__date= article.created_at.strftime('%Y年%m月%d日 %H時%M分')

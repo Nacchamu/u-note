@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   def index
     @articles = Article.all.order("created_at DESC")
+    @slidepics = Article.last(3)
     @tags = ActsAsTaggableOn::Tag.most_used(7)
   end
 
@@ -14,6 +15,7 @@ class NotesController < ApplicationController
   def new
     @article = Article.new
     @categories = Category.all
+    @tags = ActsAsTaggableOn::Tag.most_used(7)
   end
 
   def create
@@ -27,6 +29,14 @@ class NotesController < ApplicationController
 
   def search
     @articles = Article.where('title LIKE(?)',"%#{params[:title]}%").order("created_at DESC")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def category_search
+    @articles = Article.where(category_id: params[:id]).order("created_at DESC")
     respond_to do |format|
       format.html
       format.json
