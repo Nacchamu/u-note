@@ -14,4 +14,5 @@ CKEDITOR.config.toolbar = [
 ,['TextColor','BGColor']
 ,['ShowBlocks']
 ];
+
 CKEDITOR.config.height=500;

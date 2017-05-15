@@ -1,4 +1,4 @@
-$(function() {
+$(function(){
   function buildHTML(data){
     var thumbnail = $('<a href=""><img class="article__image" src="' + data.thumbnail.url + '">');
     console.log(data.thumbnail);
@@ -7,26 +7,21 @@ $(function() {
     var article = $('<div class="article">').append(thumbnail).append(text);
     $('.body__right').append(article);
   }
-  $('.header__search__text').keypress(function(e){
-    var input = $('.header__search__text').val();
-    if ( e.which == 13 ) {
-      $.ajax({
-        type:'GET',
-        url: '/search',
-        data: {
-          title: input
-        },
-        dataType: 'json'
+  $('.body__left__categories__category').on('click', function(){
+    num = $(this).children('input').val();
+    $.ajax({
+      type: 'GET',
+      url: '/category_search/' + num,
+      data:'',
+      dataType: 'json'
+    })
+    .done(function(data) {
+      $('.body__right').empty();
+      $(data).each(function(index, ele){
+        buildHTML(ele);
       })
-      .done(function(data) {
-        $('.body__right').empty();
-        $(data).each(function(index, ele){
-          buildHTML(ele);
-        })
-      })
-      .fail(function() {
-      })
-      return false;
-    }
+    })
+    .fail(function() {
+    })
   });
 });

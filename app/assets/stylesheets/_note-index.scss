@@ -1,83 +1,22 @@
-/* ヘッダー部分の装飾です */
-.header{
-  background-color: black;
-  height: 70px;
-  width: 100vw;
-  &__title{
-    color: white;
-    float: left;
-    width: 350px;
-    line-height: 70px;
-    &__logo{
-      font-size: 30px;
-      float: left;
-      margin-left: 50px;
-      color: white;
-      text-decoration: none;
-    }
-    &__copy{
-      font-size: 10px;
-      float: left;
-      color: white;
-    }
-  }
-  &__search{
-    float: left;
-    margin-left: 150px;
-    line-height: 70px;
-    &__text{
-      width:200px;
-      height:30px;
-    }
-    &__submit{
-      padding: 5px 5px;
-      font-size: 1em;
-      border-style: none;
-      background-color: #CCC;
-    }
-    &__submit:before{
-      content: "\f14a";
-      font-family: FontAwesome;
-    }
-  }
-  .fa-icons{
-    float: left;
-    margin: 20px;
-    .fa{
-      color: white;
-    }
-  }
-  .mypage{
-    width: 200px;
-    height: 70px;
-    line-height: 70px;
-    background-color: gray;
-    float: right;
-  }
-}
-.user-info{
-  width: 200px;
-  color: white;
-  font-size: 12px;
-  text-decoration: none;
-  float: right;
-  display: none;
-  li{
-    height: 40px;
-    line-height: 40px;
-    background-color: black;
-    opacity: 0.5;
-    text-align: center;
-    list-style: none;
-  }
-}
-
 /* スライドショー部分の装飾です */
-.main{
+.slide{
   width: 90vw;
   height: 300px;
-  background-color: red;
   margin: 0 auto;
+  position: relative;
+  img{
+    object-fit: cover;
+    width: 90vw;
+    height: 300px;
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 0;
+  }
+  &__title{
+  }
 }
 
 /* 「本日の記事」の部分です */
@@ -161,7 +100,7 @@
             clear: left;
           }
         }
-        div{
+        p{
           margin-left: 10px;
           float: left;
           list-style: none;

@@ -66,10 +66,10 @@ gem 'rails_admin'
 gem "font-awesome-rails"
 gem 'ckeditor'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 4.0.0'
 gem 'jquery-ui-rails'
 gem 'impressionist'
-gem 'paperclip'
 
 group :production do
   gem 'unicorn'
