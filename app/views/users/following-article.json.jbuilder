@@ -1,3 +1,3 @@
 json.(@followings) do |following|
-  json.name following.followed.article
+  json.name following.followed.name
 end

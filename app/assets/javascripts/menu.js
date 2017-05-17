@@ -1,6 +1,6 @@
 $(function(){
-  $(".mypage").click(function(){
-    $(".user-info").slideToggle();
+  $(".menu-name").click(function(){
+    $(".menu__lists").slideToggle();
     return false;
   });
 });

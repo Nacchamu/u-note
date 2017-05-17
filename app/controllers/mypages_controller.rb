@@ -2,6 +2,10 @@ class MypagesController < ApplicationController
 
   def favorite
     @favorites = Favorite.where(user_id: current_user.id).order("created_at DESC")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def show
