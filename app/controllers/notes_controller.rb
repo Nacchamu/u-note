@@ -1,8 +1,10 @@
 class NotesController < ApplicationController
+  impressionist actions: [:show]
   def index
     @articles = Article.all.order("created_at DESC")
     @slidepics = Article.last(3)
     @tags = ActsAsTaggableOn::Tag.most_used(7)
+    @rank = Article.find(Impression.group(:impressionable_id).order('count_all desc').limit(5).count.keys)
   end
 
   def show

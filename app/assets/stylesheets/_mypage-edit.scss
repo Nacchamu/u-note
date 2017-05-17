@@ -1,31 +1,3 @@
-.mypage-left{
-  width: 300px;
-  margin-left: 100px;
-  float: left;
-  &__cover{
-    width: 300px;
-    height: 400px;
-    background-color: red;
-  }
-  &__menues{
-    li{
-      width: 300px;
-      height: 40px;
-      line-height: 40px;
-      border-top: solid 1px #CCC;
-    }
-    &__delete-button{
-      font-size: 10px;
-      color: gray;
-      float: right;
-    }
-  }
-}
-
-.mypage-menues{
-
-}
-
 .mypage-user-info{
   width: 600px;
   padding: 20px;

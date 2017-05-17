@@ -16,22 +16,13 @@
         %div.header__search
           %form
             %input{class: "header__search__text",type: "text", name: "search", placeholder: "知りたいことを入力"}
-            %input{class: "header__search__submit",type: "button", name: "search", value: '検索'}
         %div.fa-icons
           = link_to new_note_path do
             %i.fa.fa-pencil-square-o.fa-2x
           = link_to mypage_path(current_user) do
             %i.fa.fa-archive.fa-2x
-        %div
-          %p.mypage
-            = current_user.name
-          %ul.user-info
-            = link_to mypages_favorite_path do
-              %li.menu お気に入り記事
-            = link_to edit_user_registration_path do
-              %li.menu プロフィール設定
-            = link_to destroy_user_session_path, method: :delete do
-              %li.menu ログアウト
+        %div.menu
+          %p.menu__name= current_user.name
 
 
     = yield

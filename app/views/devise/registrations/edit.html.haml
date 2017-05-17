@@ -2,11 +2,8 @@
   %div.mypage-left__cover
 
   %ul.mypage-left__menues
-    %li 閲覧数の解析
-    = link_to mypages_favorite_path do
-      %li お気に入り記事
-    = link_to edit_user_registration_path do
-      %li プロフィール設定
+    = link_to mypage_path(current_user) do
+      %li マイページに戻る
     = link_to '/users', method: :delete do
       %p.mypage-left__menues__delete-button >アカウントを削除する
 
