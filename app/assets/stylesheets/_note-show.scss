@@ -1,6 +1,7 @@
 .show-inner{
   width: 640px;
   padding: 20px;
+  margin-top: 30px;
   margin-left: 150px;
   border-top: solid 3px #1E90FF;
   background-color: white;
@@ -13,16 +14,18 @@
   }
   &__SNS-box{
     width: 640px;
-    height: 30px;
+    height: 60px;
     &__fav-count{
       width: 80px;
       height: 60px;
-      margin-bottom: 30px;
+      float: right;
       &__size{
         width: 80px;
         height: 30px;
         text-align: center;
         border: solid 1px #C0C0C0;
+      }
+      &__wrap{
       }
     }
   }
@@ -42,6 +45,25 @@
         float: left;
       }
     }
+    &__user-box{
+      height: 30px;
+      float: right;
+      &__avatar{
+        border-radius: 40px;
+        margin-top: 5px;
+        object-fit: cover;
+        width: 20px;
+        height: 20px;
+        background-color: #ccc;
+      }
+      &__writer-link{
+        text-decoration: none;
+      }
+      &__writer{
+        font-size: 12px;
+        color: black;
+      }
+    }
   }
   &__image{
     width: 640px;
@@ -50,7 +72,7 @@
   &__keywords{
     margin-top: 30px;
     &__title{
-      border-bottom: solid 1px;
+      border-bottom: solid 1px #C0C0C0;
     }
   }
 }

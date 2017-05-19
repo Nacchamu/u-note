@@ -1,6 +1,15 @@
-%div.mypage
-  %div.mypage-left
-    %div.mypage-left__cover
+%div.mypage-left
+  %div.mypage-left__cover
+    %img.mypage-left__cover__img{src: @user.cover_img}
+    %img.mypage-left__cover__avatar{src: @user.avatar}
+    %p.mypage-left__cover__user-name= @user.name
+    %div.mypage-left__cover__profiel-box
+      %p.mypage-left__cover__profiel-box__profiel= @user.profiel
+    %div.mypage-left__cover__article-count-box
+      %p.mypage-left__cover__article-count-box__count= @user.articles.length
+      %p.mypage-left__cover__article-count-box__text 記事
+
+  - if user_signed_in?
     - if @user.id === current_user.id
       %ul.mypage-left__menues
         %div.mypage-left__menues__following
@@ -12,25 +21,46 @@
         %input.user-id{type:'hidden', value: current_user.id}
         %li.mypage-left__menues__following-article フォロー記事
         %li.mypage-left__menues__favorite-article お気に入り記事
-        = link_to edit_user_registration_path do
+        = link_to edit_user_registration_path, class: "mypage-left__menues__profiel" do
           %li プロフィール設定
+        = link_to destroy_user_session_path, method: :delete, class: "mypage-left__menues__logout" do
+          %li ログアウト
         = link_to '/users', method: :delete do
           %p.mypage-left__menues__delete-button >アカウントを削除する
     - else
       - if @confirm.exists?
         = form_for(current_user.active_relationships.find_by(followed_id: @user.id), html: { method: :delete }) do |f|
-          = f.submit "フォロー解除", class: "btn"
+          %div.btn-box
+            = f.submit "フォロー解除", class: "unfollow-btn"
       - else
         = form_for(current_user.active_relationships.build) do |f|
           %div= hidden_field_tag :followed_id, @user.id
-          = f.submit "フォロー", class: "btn btn-primary"
+          %div.btn-box
+            = f.submit "フォロー", class: "btn follow-btn"
+  - else
+    = link_to new_user_session_path do
+      %input{type: 'submit', value:'フォロー'}
 
 
-  %div.mypage-right
+%div.mypage-right
+  - if user_signed_in?
     - if @user.id === current_user.id
       %p あなたが書いた記事
     - else
       %p= @user.name + "さんが書いた記事"
+    - @articles.each do |article|
+      %div.article
+        = link_to note_path(article.id) ,class: 'article__image-link' do
+          %img.article__image{src: article.thumbnail }
+        %div.article__texts
+          = link_to note_path(article.id) ,class: 'article__texts__title-link' do
+            %p.article__texts__title= article.title
+          %div.article__texts__detail
+            != article.text
+          %p.article__texts__user-name
+          %p.article__texts__date= article.created_at.strftime('%Y.%m.%d')
+  - else
+    %p= @user.name + "さんが書いた記事"
     - @articles.each do |article|
       %div.article
         = link_to note_path(article.id) do
@@ -41,4 +71,4 @@
           %div.article__texts__detail
             != article.text
           %p.article__texts__user-name
-          %p.article__texts__date= article.created_at.strftime('%Y年%m月%d日 %H時%M分')
+          %p.article__texts__date= article.created_at.strftime('%Y.%m.%d')

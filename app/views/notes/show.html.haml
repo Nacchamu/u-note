@@ -22,10 +22,16 @@
       %div.show-inner__info-box__date= @article.created_at.strftime('%Y年%m月%d日')
     %div.show-inner__info-space__box
       %i.fa.fa-eye
-      %div.show-inner__info-box__view 50
+      %div.show-inner__info-box__view= @impressions.length
     %div.show-inner__info-space__box
       %i.fa.fa-star-o
-      %div.show-inner__info-box__fav 0fav
+      %div.show-inner__info-box__fav= @fav_count.length
+    %div.show-inner__info-space__user-box
+      = link_to mypage_path(@article.user), class: "show-inner__info-space__user-box__writer-link" do
+        %p.show-inner__info-space__user-box__writer= @article.user.name
+    %div.show-inner__info-space__user-box
+      %img.show-inner__info-space__user-box__avatar{src: "#{@article.user.avatar}"}
+
   %img.show-inner__image{src: @article.thumbnail }
   != @article.text
   %div.show-inner__keywords

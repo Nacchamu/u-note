@@ -2,10 +2,11 @@
   = link_to note_path(article.id) do
     %img.article__image{src: article.thumbnail }
   %div.article__texts
-    = link_to note_path(article.id) do
+    = link_to note_path(article.id), class: 'article__texts__title-link' do
       %p.article__texts__title= article.title
     %div.article__texts__detail
-      != article.text
+      =strip_tags(article.text).gsub(/(\r\n|\r|\n)/, '').gsub(/(\xc2\xa0|\s)+/, '')
+    %img.article__texts__avatar{src: article.user.avatar }
     = link_to mypage_path(article.user.id) do
       %p.article__texts__user-name= article.user.name
-    %p.article__texts__date= article.created_at.strftime('%Y年%m月%d日 %H時%M分')
+    %p.article__texts__date= article.created_at.strftime('%Y.%m.%d')

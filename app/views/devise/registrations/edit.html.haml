@@ -8,7 +8,7 @@
       %p.mypage-left__menues__delete-button >アカウントを削除する
 
 %div.mypage-user-info
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = form_for(resource, as: resource_name, url: user_registration_path(resource_name), html: { method: :patch }) do |f|
     %p.mypage-user-info__title 設定
 
     %div.mypage-user-info__box
@@ -26,40 +26,39 @@
       %div.mypage-user-info__box__right
         = f.label :email
         = f.email_field  :email
-    .questions
-      = f.fields_for :userinfos do |q|
-        %div.mypage-user-info__box
-          %div.mypage-user-info__box__left
-            %p.mypage-user-info__box__left__title アイコン設定
-          %div.mypage-user-info__box__right
-            = q.file_field :avatar
 
-        %div.mypage-user-info__box
-          %div.mypage-user-info__box__left
-            %p.mypage-user-info__box__left__title カバー画像設定
-          %div.mypage-user-info__box__right
-            = q.file_field :cover_img
+    / %div.mypage-user-info__box
+    /   %div.mypage-user-info__box__left
+    /     %p.mypage-user-info__box__left__title アイコン設定
+    /   %div.mypage-user-info__box__right
+    /     = f.file_field :avatar
 
-        %div.mypage-user-info__box
-          %div.mypage-user-info__box__left
-            %p.mypage-user-info__box__left__title プロフィール設定
-            %p *120文字以内で入力してください
-          %div.mypage-user-info__box__right
-            = q.text_field :profiel
+    / %div.mypage-user-info__box
+    /   %div.mypage-user-info__box__left
+    /     %p.mypage-user-info__box__left__title カバー画像設定
+    /   %div.mypage-user-info__box__right
+    /     = f.file_field :cover_img
 
-        %div.mypage-user-info__box
-          %div.mypage-user-info__box__left
-            %p.mypage-user-info__box__left__title 外部サイトURL設定
-          %div.mypage-user-info__box__right
-            = q.text_field :hp_url
+    / %div.mypage-user-info__box
+    /   %div.mypage-user-info__box__left
+    /     %p.mypage-user-info__box__left__title プロフィール設定
+    /     %p *120文字以内で入力してください
+    /   %div.mypage-user-info__box__right
+    /     = f.text_field :profiel
 
-    %div.mypage-user-info__box
-      %div.mypage-user-info__box__left
-        %p.mypage-user-info__box__left__title おすすめ記事通知
-        %p 通知をオフにしても、重要な情報は送信されます
-      %div.mypage-user-info__box__right
-        %input{type: 'checkbox', value: '1'} メールを受け取る
-        %input{type: 'checkbox', value: '2'} 受け取らない
+    / %div.mypage-user-info__box
+    /   %div.mypage-user-info__box__left
+    /     %p.mypage-user-info__box__left__title 外部サイトURL設定
+    /   %div.mypage-user-info__box__right
+    /     = f.text_field :hp_url
+
+    / %div.mypage-user-info__box
+    /   %div.mypage-user-info__box__left
+    /     %p.mypage-user-info__box__left__title おすすめ記事通知
+    /     %p 通知をオフにしても、重要な情報は送信されます
+    /   %div.mypage-user-info__box__right
+    /     %input{type: 'checkbox', value: '1'} メールを受け取る
+    /     %input{type: 'checkbox', value: '2'} 受け取らない
 
     %div.mypage-user-info__box-button
       = f.submit '保存'
