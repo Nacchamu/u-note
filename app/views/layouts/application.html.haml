@@ -7,6 +7,7 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
+
     %div.header
       %div.header__title
         = link_to root_path do
@@ -22,7 +23,15 @@
           = link_to mypage_path(current_user) do
             %i.fa.fa-archive.fa-2x
         %div.menu
-          %p.menu__name= current_user.name
+          %img.menu__avatar{src: current_user.avatar}
+          %ul.menu__user
+            = current_user.name
+            = link_to mypage_path(current_user), class: "menu__user__lists-link" do
+              %li.menu__user__lists マイページ
+            = link_to edit_user_registration_path(current_user), class: "menu__user__lists-link" do
+              %li.menu__user__lists プロフィール設定
+            = link_to destroy_user_session_path, class: "menu__user__lists-link", method: :delete do
+              %li.menu__user__lists ログアウト
 
 
     = yield

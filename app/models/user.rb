@@ -5,9 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  # userinfosテーブルとのアソシエーションです
-  has_one :userinfo, dependent: :destroy
-  accepts_nested_attributes_for :userinfo
 
   # relationshipテーブルとのアソシエーションです
     # active_relationshipsとのアソシエーションです
@@ -16,6 +13,10 @@ class User < ApplicationRecord
     # passive_relationshipsとのアソシエーションです
     has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
     has_many :followers, through: :passive_relationships, source: :follower
+
+    # uploaderの設定です
+    mount_uploader :avatar, AvatarUploader
+    mount_uploader :cover_img, CoverImgUploader
 
   # ユーザーをフォローする
   def follow(other_user)

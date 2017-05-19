@@ -1,9 +1,9 @@
 $(function(){
   function buildHTML(data){
-    var thumbnail = $('<a href=""><img class="article__image">');
-    var title = $('<div class="article__texts">').append('<p class="article__texts__title">' + data.name);
-    // var text = $(title).append('<div class="article__texts__detail">' + data.text).append('<p class="article__texts__user-name">' + data.username).append('<p class="article__texts__date">' + data.created_at);
-    var article = $('<div class="article">').append(thumbnail).append(title);
+    var thumbnail = $('<a href="/mypages/' + data.id + '"><img class="article__image" src="'+ data.avatar.url +'">');
+    var title = $('<div class="article__texts">').append('<a href="/mypages/' + data.id + '" style="text-decoration: none;"><p class="article__texts__title" style="text-decoration:">' + data.name);
+    var text = $(title).append('<div class="article__texts__detail">' + data.profiel);
+    var article = $('<div class="article">').append(thumbnail).append(text);
     $('.mypage-right').append(article);
   }
   $('.mypage-left__menues__following').on('click', function(){

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'notes#index'
   get 'search' => 'notes#search'
   get 'category_search/:id' => 'notes#category_search'
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+  }
   resources :users, only: [:following, :followers, :following_article] do
     member do
       get :following, :followers, :following_article

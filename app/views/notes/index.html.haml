@@ -14,6 +14,12 @@
       %p カテゴリ一覧
       %div.body__left__categories__category
         %div.fa-box
+          =link_to root_path do
+            %i.fa.fa-home.fa-2x
+        =link_to root_path do
+          %p 全て
+      %div.body__left__categories__category
+        %div.fa-box
           %i.fa.fa-suitcase.fa-2x
         %p ビジネス
         %input{type:'hidden', value: 1}
@@ -45,13 +51,13 @@
 
     %div.body__left__famouses
       %p.body__left__famouses__title 記事ランキング
-      %p.body__left__famouses__time= Time.now.strftime('%Y年%m月%d日') + 'にアクセスが多かった記事はこちら！'
+      %p.body__left__famouses__time= Time.now.strftime('%m月%d日') + 'にアクセスが多かった記事はこちら！'
       - @rank.each.with_index(1) do |rank, i|
         %div.body__left__famouses__box
           %p.body__left__famouses__box__rank= "第#{i}位"
           = link_to note_path(rank.id) do
             %img.body__left__famouses__box__article-thumbnail{src: rank.thumbnail }
-          = link_to note_path(rank.id) do
+          = link_to note_path(rank.id), class: 'body__left__famouses__box__article-title-link' do
             %p.body__left__famouses__box__article-title= rank.title
 
     %div.body__left__news
