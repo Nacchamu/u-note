@@ -30,7 +30,7 @@
   width: 90vw;
   margin: 0 auto;
   background-color: blue;
-  &__right{
+  &__left{
     width: 60vw;
     background-color: white;
     float:left;
@@ -96,7 +96,7 @@
       }
     }
   }
-  &__left{
+  &__right{
     width: 30vw;
     height: 300px;
     float:  right;

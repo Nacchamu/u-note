@@ -6,11 +6,11 @@
       %div.show-inner__SNS-box__fav-count__size= @fav_count.length
       - if user_signed_in?
         %div.show-inner__SNS-box__fav-count__wrap
-          - if @yet.exists?
+          - if @fav_yet.exists?
             %input.show-inner__SNS-box__fav-count__wrap__button{type: "submit", value: "お気に入り済み"}
           - else
             %input.show-inner__SNS-box__fav-count__wrap__button{type: "submit", value: "お気に入り"}
-        - @yet.each do |yet|
+        - @fav_yet.each do |yet|
           %input.show-inner__SNS-box__fav-count__already{type: "hidden", value: yet.id}
       - else
         = link_to new_user_session_path do
@@ -34,8 +34,3 @@
 
   %img.show-inner__image{src: @article.thumbnail }
   != @article.text
-  %div.show-inner__keywords
-    %p.show-inner__keywords__title
-      %strong この記事の関連キーワード
-    - @tags.each do |tag|
-      %p= tag

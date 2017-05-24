@@ -1,17 +1,17 @@
 class NotesController < ApplicationController
   impressionist actions: [:show]
   def index
-    @articles = Article.all.order("created_at DESC")
+    @articles = Article.includes(:user).all.order("created_at DESC")
     @slidepics = Article.last(3)
     @tags = ActsAsTaggableOn::Tag.most_used(7)
     @rank = Article.find(Impression.group(:impressionable_id).order('count_all desc').limit(5).count.keys)
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.includes(:user).find(params[:id])
     @fav_count = Favorite.where(article_id: params[:id])
     @impressions = Impression.where(impressionable_id: params[:id])
-    @yet = Favorite.where(user_id: current_user.id).where(article_id: params[:id]) if user_signed_in?
+    @fav_yet = Favorite.where(user_id: current_user.id).where(article_id: params[:id]) if user_signed_in?
     @tags = @article.tag_list
   end
 

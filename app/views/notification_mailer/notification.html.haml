@@ -1,0 +1,10 @@
+%p= @user.name + "さんこんにちは！今週も頑張って行きましょう！"
+
+%p= @user.name + "さんがフォローしているユーザーの先週の投稿"
+%p= @line
+- @articles.each do |article|
+  = link_to "http://localhost:3000/notes/#{article.id}" do
+    %p= article.title
+  %p= article.user.name
+  %p= article.created_at.strftime('%m月%d日')
+  %p= @line

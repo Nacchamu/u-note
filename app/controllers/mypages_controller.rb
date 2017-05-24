@@ -1,7 +1,7 @@
 class MypagesController < ApplicationController
 
   def favorite
-    @favorites = Favorite.where(user_id: current_user.id).order("created_at DESC")
+    @favorites = Favorite.includes(:article, :user).where(user_id: current_user.id).order("created_at DESC")
     respond_to do |format|
       format.html
       format.json

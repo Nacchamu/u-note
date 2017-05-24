@@ -1,6 +1,6 @@
 json.(@followers) do |follower|
   json.avatar follower.follower.avatar
   json.name follower.follower.name
-  json.avatar follower.follower.avatar
+  json.profiel follower.follower.profiel
   json.id follower.follower.id
 end

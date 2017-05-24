@@ -5,7 +5,7 @@
     = link_to note_path(article.id), class: 'article__texts__title-link' do
       %p.article__texts__title= article.title
     %div.article__texts__detail
-      =strip_tags(article.text).gsub(/(\r\n|\r|\n)/, '').gsub(/(\xc2\xa0|\s)+/, '')
+      = strip_tags(article.text).gsub(/(\r\n|\r|\n)/, '').gsub(/(\xc2\xa0|\s)+/, '')
     %img.article__texts__avatar{src: article.user.avatar }
     = link_to mypage_path(article.user.id) do
       %p.article__texts__user-name= article.user.name
