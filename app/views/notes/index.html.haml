@@ -6,67 +6,67 @@
 %p.todays-article 本日の記事
 
 %div.body
-  %div.body__right
+  %div.body__left
     = render partial: "article", collection: @articles
 
-  %div.body__left
-    %div.body__left__categories
+  %div.body__right
+    %div.body__right__categories
       %p カテゴリ一覧
-      %div.body__left__categories__category
+      %div.body__right__categories__category
         %div.fa-box
           =link_to root_path do
             %i.fa.fa-home.fa-2x
         =link_to root_path do
-          %p 全て
-      %div.body__left__categories__category
+          %p トップ
+      %div.body__right__categories__category
         %div.fa-box
           %i.fa.fa-suitcase.fa-2x
         %p ビジネス
         %input{type:'hidden', value: 1}
-      %div.body__left__categories__category
+      %div.body__right__categories__category
         %div.fa-box
           %i.fa.fa-book.fa-2x
         %p 本
         %input{type:'hidden', value: 2}
-      %div.body__left__categories__category
+      %div.body__right__categories__category
         %div.fa-box
           %i.fa.fa-bicycle.fa-2x
         %p ライフスタイル
         %input{type:'hidden', value: 3}
-      %div.body__left__categories__category
+      %div.body__right__categories__category
         %div.fa-box
           %i.fa.fa-black-tie.fa-2x
         %p メンズファッション
         %input{type:'hidden', value: 4}
-      %div.body__left__categories__category
+      %div.body__right__categories__category
         %div.fa-box
           %i.fa.fa-calendar-check-o.fa-2x
         %p イベント
         %input{type:'hidden', value: 5}
-      %div.body__left__categories__category
+      %div.body__right__categories__category
         %div.fa-box
           %i.fa.fa-microphone.fa-2x
         %p インタビュー
         %input{type:'hidden', value: 6}
 
-    %div.body__left__famouses
-      %p.body__left__famouses__title 記事ランキング
-      %p.body__left__famouses__time= Time.now.strftime('%m月%d日') + 'にアクセスが多かった記事はこちら！'
+    %div.body__right__famouses
+      %p.body__right__famouses__title 記事ランキング
+      %p.body__right__famouses__time= Time.now.strftime('%m月%d日') + 'にアクセスが多かった記事はこちら！'
       - @rank.each.with_index(1) do |rank, i|
-        %div.body__left__famouses__box
-          %p.body__left__famouses__box__rank= "第#{i}位"
+        %div.body__right__famouses__box
+          %p.body__right__famouses__box__rank= "第#{i}位"
           = link_to note_path(rank.id) do
-            %img.body__left__famouses__box__article-thumbnail{src: rank.thumbnail }
+            %img.body__right__famouses__box__article-thumbnail{src: rank.thumbnail }
           = link_to note_path(rank.id), class: 'body__left__famouses__box__article-title-link' do
-            %p.body__left__famouses__box__article-title= rank.title
+            %p.body__right__famouses__box__article-title= rank.title
 
-    %div.body__left__news
+    %div.body__right__news
       %p 新着特集
 
-    %div.body__left__keywords
+    %div.body__right__keywords
       %p 話題のキーワード
-      %div.body__left__keywords__tags-box
+      %div.body__right__keywords__tags-box
         - @tags.each do |tag|
-          %div.body__left__keywords__tags-box__tag-box
+          %div.body__right__keywords__tags-box__tag-box
             %i.fa.fa-tag
             %p.tag= tag.name

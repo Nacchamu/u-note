@@ -54,6 +54,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'erb2haml'
   gem 'pry-rails'
+  gem "letter_opener"
+  gem 'bullet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -70,6 +72,9 @@ gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 4.0.0'
 gem 'jquery-ui-rails'
 gem 'impressionist'
+gem 'sidekiq'
+gem 'redis-namespace'
+gem 'whenever'
 
 group :production do
   gem 'unicorn'
