@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170517124106) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "category_id",               null: false
-    t.text     "thumbnail",   limit: 65535, null: false
+    t.text     "thumbnail",   limit: 65535
     t.index ["title"], name: "index_articles_on_title", using: :btree
     t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
   end
