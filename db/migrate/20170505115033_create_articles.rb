@@ -4,6 +4,7 @@ class CreateArticles < ActiveRecord::Migration[5.0]
       t.string :title, index: true, null: false, unique: false, foreign_key: false
       t.text :text, index: false, null: false, unique: false, foreign_key: false
       t.integer :user_id, index: true, null: false, unique: false, foreign_key: true
+      t.integer :articles, :category_id, :null => false, :foreign_key => true
       t.timestamps
     end
   end
