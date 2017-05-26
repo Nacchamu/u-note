@@ -22,17 +22,6 @@ namespace :deploy do
   end
 end
 
-task :update do
-  run_locally do
-    application = fetch :application
-    if test "[ -d #{application} ]"
-      execute "cd #{application}; git pull"
-    else
-      execute "git clone #{fetch :repo_url} #{application}"
-    end
-  end
-end
-
 
 task :deploy => :archive do
   archive_path = fetch :archive_absolute_path
