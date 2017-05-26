@@ -1,7 +1,8 @@
 %div.mypage-left
   %div.mypage-left__cover
     %img.mypage-left__cover__img{src: @user.cover_img}
-    %img.mypage-left__cover__avatar{src: @user.avatar}
+    / %img.mypage-left__cover__avatar{src: @user.avatar}
+    = image_tag(@user.avatar, class: 'mypage-left__cover__avatar')
     %p.mypage-left__cover__user-name= @user.name
     %div.mypage-left__cover__profiel-box
       %p.mypage-left__cover__profiel-box__profiel= @user.profiel
