@@ -21,3 +21,42 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
+
+task :update do
+  run_locally do
+    application = fetch :application
+    if test "[ -d #{application} ]"
+      execute "cd #{application}; git pull"
+      end
+    else
+      execute "git clone #{fetch :repo_url} #{application}"
+    end
+  end
+end
+
+
+task :deploy => :archive do
+  archive_path = fetch :archive_absolute_path
+  archive_name = fetch :archive_name
+  release_path = File.join(fetch(:deploy_to), fetch(:application))
+  on roles(:web) do
+    begin
+      old_project_dir = File.join(release_path, capture("cd #{release_path}; ls -d */").chomp)
+      if test "[ -d #{old_project_dir} ]"
+        running_pid = capture("cd #{old_project_dir}; cat RUNNING_PID")
+        execute "kill #{running_pid}"
+      end
+    rescue => e
+      info "No previous release directory exists"
+    end
+
+    unless test "[ -d #{release_path} ]"
+      execute "mkdir -p #{release_path}"
+    end
+    upload! archive_path, release_path
+    execute "cd #{release_path}; tar -zxvf #{archive_name}"
+    project_dir = File.join(release_path, capture("cd #{release_path}; ls -d */").chomp)
+    launch = capture("cd #{project_dir}; ls bin/*").chomp
+    execute "cd #{project_dir}; ( ( nohup #{launch} &>/dev/null ) & echo $! > RUNNING_PID)"
+  end
+end
