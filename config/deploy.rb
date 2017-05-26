@@ -27,7 +27,6 @@ task :update do
     application = fetch :application
     if test "[ -d #{application} ]"
       execute "cd #{application}; git pull"
-      end
     else
       execute "git clone #{fetch :repo_url} #{application}"
     end
