@@ -12,7 +12,8 @@
       %div.header__title
         = link_to root_path do
           %p.header__title__logo U-NOTE
-        %p.header__title__copy 仕事を楽しく、毎日をかっこ良く
+        = link_to new_user_session_path do
+          %p.header__title__copy 仕事を楽しく、毎日をかっこ良く
       - if user_signed_in?
         %div.header__search
           %form
