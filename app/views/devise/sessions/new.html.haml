@@ -1,6 +1,8 @@
 #account-page.account-page
   .account-page__inner.clearfix
     .account-page__inner--left.account-page__header
+      = link_to new_user_registration_path do
+        %p sign-up
       %h2 Log in
       %h5 登録しているユーザーでログイン
       = render "devise/shared/links"

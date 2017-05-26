@@ -314,6 +314,7 @@ DEPENDENCIES
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_admin
   redis-namespace
+  responders
   sass-rails (~> 5.0)
   sidekiq
   spring
