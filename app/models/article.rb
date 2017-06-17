@@ -11,7 +11,7 @@ class Article < ApplicationRecord
   #タグ関連の設定です
   acts_as_taggable
   # ビュー数カウントの設定です
-  is_impressionable
+  # is_impressionable
   # サムネイルをアップロードする際の設定です
   mount_uploader :thumbnail, ThumbnailUploader
 
