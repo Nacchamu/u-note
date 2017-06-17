@@ -1,18 +1,43 @@
 class NotesController < ApplicationController
-  impressionist actions: [:show]
+  # impressionist actions: [:show]
   def index
     @articles = Article.includes(:user).all.order("created_at DESC")
     @slidepics = Article.last(3)
     @tags = ActsAsTaggableOn::Tag.most_used(7)
-    @rank = Article.find(Impression.group(:impressionable_id).order('count_all desc').limit(5).count.keys)
+    # @rank = Article.find(Impression.group(:impressionable_id).order('count_all desc').limit(5).count.keys)
+
+    # その日のランキング作成アルゴリズム部分
+    daily_pageviews = Hash.new
+    today = Date.today.to_s
+    @articles.each do |article|
+      daily_pageviews[article.id] = REDIS.get "posts/daily/#{today}/#{article.id}"
+    end
+    daily_pageviews_ranking = daily_pageviews.sort{|a, b| b[1] <=> a[1]}
+    top3_articles = daily_pageviews_ranking[0..4]
+    @rank = []
+    top3_articles.each{|key,val|
+      @rank << Article.find(key)
+    }
   end
 
   def show
     @article = Article.includes(:user).find(params[:id])
     @fav_count = Favorite.where(article_id: params[:id])
-    @impressions = Impression.where(impressionable_id: params[:id])
+    # @impressions = Impression.where(impressionable_id: params[:id])
     @fav_yet = Favorite.where(user_id: current_user.id).where(article_id: params[:id]) if user_signed_in?
     @tags = @article.tag_list
+
+    # ビュー数をカウントします
+    REDIS.incr "posts/daily/#{Date.today.to_s}/#{@article.id}"
+
+    # 各記事のビュー数を表示します
+    view_counts = 0
+    selected_articles = REDIS.keys "*/#{@article.id}*"
+    selected_articles.each do |selected_article|
+       view_count = REDIS.get "#{selected_article}"
+       view_counts += view_count.to_i
+    end
+    @view_counts = view_counts
   end
 
   def new

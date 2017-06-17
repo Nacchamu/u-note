@@ -75,6 +75,7 @@ gem 'jquery-ui-rails'
 gem 'impressionist'
 gem 'sidekiq'
 gem 'redis-namespace'
+gem 'redis'
 gem 'whenever'
 
 group :production do
